@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "da4c96f0-efc6-4252-b696-b52b3d226d72",
+		"name": "API-first-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "18927542-da4c96f0-efc6-4252-b696-b52b3d226d72"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4963b9ec-b995-4b59-a7c7-b1483f646325",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Body matches string \\\"Created\\\"\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Created\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "cab59ccc-0c4d-420e-91dc-073bf72a58dd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"test321\",\"password\":\"test\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basicU}}register",
+					"host": [
+						"{{basicU}}register"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "612be43f-adc4-4d3d-a7bf-1f4820072669",
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"test456\",\"password\":\"test\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"uuid": "48dd141d-8821-4988-836d-d3fd18967247"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8",
+							"uuid": "9e70e0b1-4d8f-43b7-ba6a-31278f60dc01"
+						},
+						{
+							"key": "Content-Length",
+							"value": "7",
+							"uuid": "3ffc70e5-1e30-42ea-b530-278d380b5487"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7-rM9AyJuqT6iOan/xHh+AW+7K/T8\"",
+							"uuid": "15f81f76-b3be-42c0-8aac-fe2e84a19889"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Nov 2023 14:57:25 GMT",
+							"uuid": "3ed44e63-7304-47c8-92d1-2a61365c581e"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"uuid": "82d620a9-2e61-490c-9a2f-7c18dd534075"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"uuid": "a669638f-1fcc-436f-a197-c230d51bb9ee"
+						}
+					],
+					"cookie": [],
+					"body": "Created"
+				}
+			]
+		},
+		{
+			"name": "Сreate existing user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc7f0bbf-9fd9-45bb-be3d-617e44a7ea71",
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
+							"",
+							"pm.test(\"Body matches string \\\"User already exist\\\"\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"User already exist\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "cb77eb68-2be2-4e52-a8d8-986ea496b5c7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"test321\",\"password\":\"test\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basicU}}register",
+					"host": [
+						"{{basicU}}register"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "20e4469a-fbc7-47fe-8f74-486985d23dd1",
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"test456\",\"password\":\"test\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"uuid": "15749182-1ba6-4368-8b1c-f3d174f5ded9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8",
+							"uuid": "c5d21d82-d29a-4c66-9e5e-c9321364f4f5"
+						},
+						{
+							"key": "Content-Length",
+							"value": "7",
+							"uuid": "cd866368-249a-47cc-8f4f-10db1a78f770"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7-rM9AyJuqT6iOan/xHh+AW+7K/T8\"",
+							"uuid": "198fe2ed-1e28-47a1-b5b5-e9e83e0dc72a"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Nov 2023 14:57:25 GMT",
+							"uuid": "3ded4189-8f08-4fb4-ae7c-dc1258104c78"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"uuid": "b363c41f-ca8c-4726-93e5-9440ae0a5b1e"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"uuid": "c2fc73a7-1278-4a46-9a64-297d8ac5e382"
+						}
+					],
+					"cookie": [],
+					"body": "Created"
+				}
+			]
+		}
+	]
+}
